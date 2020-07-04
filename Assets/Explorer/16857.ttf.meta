@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9871b507aed734448b775170abd766ce
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: adineue PRO Cyr
+  fontNames:
+  - adineue PRO Cyr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5c1845f8f4f910a44b6b43a3431860e1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

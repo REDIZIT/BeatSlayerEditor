@@ -1,0 +1,65 @@
+Key|English|Russian
+
+// Account
+LogIn|Log in|Войти
+LogOut|Log out|Выйти
+SignUp|Sign up|Новый
+Guest|Guest|Гость
+
+// Buttons
+Cancel|Cancel|Отменить
+Create|Create|Создать
+
+// Views
+Projects|Projects|Проекты
+PublishedProjects|Published projects|Опубликованные проекты
+Settings|Settings|Настройки
+
+// Project
+CreateNewProject|Create new project|Создать новый проект
+NoProjects|<size=64>You have not projects yet >_<</size>[N]<color=#666>Click 'Create new project' button and lets create!</color>|<size=64>Пока нет проектов >_<</size>[N]<color=#666>Нажми на кнопку 'Создать новый проект' и давай творить!</color>
+Delete|Delete|Удалить
+Edit|Edit|Изменить
+Publish|Publish|Опубликовать
+Open|Open|Открыть
+
+// Published
+NoPublishedProjects|<size=64>You have not published projects yet >_<</size>[N]<color=#666>Click 'Publish' button on your project</color>|<size=64>Пока нет опубликованных проектов >_<</size>[N]<color=#666>Нажми на кнопку 'Опубликовать' в проекте</color>
+YouMustAuth|<size=64>Guests can't upload tracks.</size>[N]<color=#666>Log in or create account.</color>|<size=64>Гости не могут публиковать треки</size>[N]<color=#666>Войти или создай аккаунт.</color>
+
+// Project settings
+ProjectSettings|Edit project|Редактировать проект
+Apply|Apply|Применить
+
+// Settings
+Console|Console|Консоль
+Language|Language|Язык
+ProjectFolder|Projects folder|Папка с проектами
+LegacyProjectFolder|Legacy projects folder|Устаревшая папка
+
+// Overlays
+DeleteProject?|Delete project?|Удалить проект?
+SelectAudioFile|Select audio file|Выбрать музыку
+PlayAudio|Play audio|Слушать
+StopAudio|Stop audio|Остановить
+Name..|Name..|Название..
+Author..|Author..|Автор..
+Email..|Email..|Почта..
+PublishProject|Publish project|Опубликовать проект
+Publish|Publish|Опубликовать
+EmailForContact|Email (for contacting with you)|Почта(для контакта с тобой)
+
+// Publishing
+Success!|Success!|Успех!
+Error!|Error!|Ошибка!
+PublishSuccessMessage|Project has been published successfully.[N]You can see it in the “Published Projects” section in a few minutes.|Проект опубликован успешно!.[N]Ты сможешь увидить его в разделе “Опубликованные проекты” через пару минут.
+
+// Update editor
+UpdateText|Version <color=#08F>{0}</color> is available![N]Your version is <color=#F40>{1}</color>|Версия <color=#08F>{0}</color> доступна![N]Твоя версия <color=#F40>{1}</color>
+UpdateAvailable|New version available|Доступна новая версия
+Later|Later|Позже
+OpenWebsite|Open website|Перейти на сайт
+Install|Install|Установить
+Installing|Installing|Установка
+
+Test|Test|Тест

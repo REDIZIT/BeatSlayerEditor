@@ -1,0 +1,28 @@
+Key|English|Russian
+
+
+// Basic
+
+Exit|Exit|Выйти
+Save|Save|Сохранить
+Loading|Loading|Загрузка
+QuitWithoutSaving?|Quit without saving?|Выйти без сохранения?
+Cancel|Cancel|Отмена
+
+
+// Instruments
+
+Spawner|Spawner|Спавнер
+Inspector|Inspector|Инспектор
+Bookmarks|Bookmarks|Закладки
+SwipeEditor|Swipe editor|Свайп редактор
+ShowTimeline|Show timeline|Показать таймлайн
+HideTimeline|Hide timeline|Скрыть таймлайн
+ForExitPreesExit|To exit, press back button on phone|Для выхода нажми кнопку назад на телефоне
+
+
+// Timeline
+Speed|Speed|Скорость
+Normal|Normal|Нормальная
+Slowed|Slowed|Замедленная
+RewindSpeed|Rewind speed|Скорость перемотки

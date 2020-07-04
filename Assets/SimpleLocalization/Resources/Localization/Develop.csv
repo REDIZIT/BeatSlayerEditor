@@ -1,0 +1,135 @@
+Key|English|Russian
+
+NewProject|New project|Новый проект
+OpenProject|Open project|Открыть проект
+
+NewVersionText|<size=80>New version is available!</size>[N]New version is <color=#08F>{0}</color> and your is <color=#F40>{1}</color>|<size=80>Доступна новая версия!</size>[N]Новая версия <color=#08F>{0}</color>, а твоя <color=#F40>{1}</color>
+Update|Update|Обновить
+Later|Later|Отстань
+
+
+// Main window
+
+Settings|Settings|Настройки
+Remove|Remove|Удалить
+Close|Close|Закрыть
+Cancel|Cancel|Отмена
+Apply|Apply|Приминить
+ProjectsList|Projects list|Список проектов
+RefreshList|Refresh list|Обновить список
+OpenWebsite|Open website|Открыть сайт
+OpenGroup|Group in vk|Группа в вк
+
+// Settings window
+
+Graphics|Graphics|Графоний
+ConsoleSetting|Console <color=#777>(displaying errors and etc)</color>|Консоль <color=#777>(вывод ошибок и всего такого)</color>
+PathToFolder|Projects folder path:|Путь до папки с проектама:
+WithEffects|With bells and whistles|Со свистелками и перделками
+WithoutEffects|Without bells and whistles|Без свистелок и перделкок
+On|On|Включена
+Off|Off|Выключена
+RemoveProject?|Remove project?|Удалить проект?
+RemoveHistory|Bum Vitalya asks: "May I take it?"[N]If you give him your project, he will not return it anymore.|Бомж виталя спрашивает: "Можно я заберу его?"[N]Если ты отдашь ему свой проект, он его больше не вернёт
+NoGive|Not giving|Не дам
+DoGive|Give away|Отдать
+
+
+// Create project
+
+CreateProjectTitle|Create new project|Создать новый проект
+InputTrackName|Input track's name|Введите название трека
+InputTrackAuthor|Input track's authors|Введите автора трека
+SelectAudioFile|Select audio file|Выбрать файл музыки
+SelectImageFile|Select cover file|Выбрать фалй обложки
+PlayAudio|Play audio|Воспроизвести
+Create|Create|Создать
+
+
+// Project settings
+
+ProjectSettings|Project settings|Настройки проекта
+
+
+
+
+
+
+
+
+
+
+
+
+//////
+////// Editor
+//////
+
+
+// Basic
+
+Exit|Exit|Выйти
+Save|Save|Сохранить
+Loading|Loading|Загрузка
+QuitWithoutSaving?|Quit without saving?|Выйти без сохранения?
+Publish|Publish|Опубликовать
+
+
+// Instruments
+
+Spawner|Spawner|Спавнер
+Inspector|Inspector|Инспектор
+Bookmarks|Bookmarks|Закладки
+SwipeEditor|Swipe editor|Свайп редактор
+ShowTimeline|Show timeline|Показать таймлайн
+HideTimeline|Hide timeline|Скрыть таймлайн
+PressExitToExit|To exit, press back button on phone|Для выхода нажми кнопку назад на телефоне
+
+
+// Timeline
+Speed|Speed|Скорость
+Normal|Normal|Нормальная
+Slowed|Slowed|Замедленная
+RewindSpeed|Rewind speed|Скорость перемотки
+
+
+// Inspector
+
+Time|Time|Время
+Mins|Mins|Мин
+Secs|Secs|Сек
+Ms|Ms|Мил.сек
+Road|Road|Дорожка
+1(Left)|1 (Left)|1 (Левая)
+2|2|2
+3|3|3
+4(Right)|4 (Right)|4 (Правая)
+CubeType|Cube type|Тип куба
+Point|Point|Точка
+Arrow|Arrow|Стрелочка
+Line|Line|Линия
+Direction|Direction|Направление
+Up|Up|Вверх
+Down|Down|Вниз
+Left|Left|Влево
+Right|Right|Вправо
+Height|Height|Высота
+Top|Top|Сверху
+Bottom|Bottom|Внизу
+ForSide|For side|Для стороны
+LeftSide|Left|Левая
+RightSide|Right|Правая
+LinePointsEditor|Line point editor|Редактор точек линии
+Direction&Type|Direction[N]Cube type[N]Height[N][N]Road|Направление[N]Тип куба[N]Высота[N][N]Дорога
+
+// Spawner
+CreateCubeHere|Create cube here|Создать куб здесь
+
+// Bookmarks
+BookmarkType|Bookmark type|Тип закладки
+BottomBookmark|Bottom|Нижняя
+SideBookmark|Side|Боковая
+BothBookmark|Both|Сдвоенная
+Color|Color|Цвет
+CreateBookmarkHere|Create bookmark here|Создать закладку здесь
+RemoveClosestBookmark|Remove closest bookmark|Удалить ближайшую закладку
