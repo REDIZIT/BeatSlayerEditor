@@ -23,6 +23,8 @@ namespace GameNet.WebAPI
         {
             try
             {
+                AllowHttp();
+
                 CI.HttpClient.HttpClient client = new CI.HttpClient.HttpClient();
 
                 var httpContent = new CI.HttpClient.MultipartFormDataContent();
@@ -52,7 +54,7 @@ namespace GameNet.WebAPI
 
         private static void AllowHttp()
         {
-            ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             ServicePointManager.ServerCertificateValidationCallback = (s, c, ch, e) => { return true; };
         }
     }

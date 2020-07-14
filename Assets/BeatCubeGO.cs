@@ -14,7 +14,7 @@ public class BeatCubeGO : MonoBehaviour
 
     public static float unitsRoadStart = 0.6230253f;
 
-    public Mesh pointMesh, dirMesh;
+    public Mesh pointMesh, dirMesh, bombMesh;
     bool isSelected;
 
     private void Awake()
@@ -55,6 +55,11 @@ public class BeatCubeGO : MonoBehaviour
             {
                 AddColliderToLine(line, line.GetPosition(i), line.GetPosition(i + 1));
             }
+        }
+        else if (beatCubeClass.type == BeatCubeClass.Type.Bomb)
+        {
+            Debug.Log("Bomb render");
+            GetComponent<MeshFilter>().mesh = bombMesh;
         }
         else
         {

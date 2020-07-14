@@ -208,7 +208,6 @@ namespace ProjectManagement
                 xml.Serialize(stream, proj);
             }
 
-            Debug.Log("Move temp file");
             File.Delete(projectPath);
             File.Move(projectPath + ".tmp", projectPath);
 

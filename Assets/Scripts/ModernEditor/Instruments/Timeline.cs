@@ -99,12 +99,12 @@ public class Timeline : MonoBehaviour
     {
         if(bpmField.text == "")
         {
-            bm.bpm = 0;
+            bm.BPM = 0;
             return;
         }
         if(int.TryParse(bpmField.text, out int bpm))
         {
-            bm.bpm = bpm;
+            bm.BPM = bpm;
         }
     }
 }

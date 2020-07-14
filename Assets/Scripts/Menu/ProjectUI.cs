@@ -220,7 +220,7 @@ public class ProjectUI : MonoBehaviour
     {
         List<char> exclude = new List<char>()
         {
-            ' ', '(', ')', '_', '`', '\'', '\"', '/'
+            ' ', '(', ')', '_', '`', '\'', '\"', '/', '&'
         };
 
         bool containsSpecialSymbol = str.Any(c => !char.IsLetterOrDigit(c) && !exclude.Contains(c));

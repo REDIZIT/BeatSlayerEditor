@@ -262,8 +262,8 @@ public class SongEditor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) tap_roadDropdown.value = 2;
         if (Input.GetKeyDown(KeyCode.Alpha4)) tap_roadDropdown.value = 3;
         if (Input.GetKeyDown(KeyCode.Tab)) tap_typeDropdown.value = tap_typeDropdown.value == 0 ? 1 : 0;
-        if (Input.GetKeyDown(KeyCode.A)) StepClick(-1);
-        if (Input.GetKeyDown(KeyCode.D)) StepClick(1);
+        if (Input.GetKey(KeyCode.A)) StepClick(-1);
+        if (Input.GetKey(KeyCode.D)) StepClick(1);
         if (Input.GetKeyDown(KeyCode.F)) { ForceTo(); }
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C)) { if (!mode_copypaste) { CopyPasteClick(); } else { OnCopyPasteCopy(); } }
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V)) { if (mode_copypaste) { OnCopyPastePaste(); } }

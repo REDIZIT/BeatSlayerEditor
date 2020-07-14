@@ -78,7 +78,7 @@ namespace ModernEditor.Instruments
             saberSection.SetActive(Cls?.type != BeatCubeClass.Type.Line);
 
 
-            cubeSection.SetActive(Cls.type == BeatCubeClass.Type.Dir || Cls.type == BeatCubeClass.Type.Point);
+            cubeSection.SetActive(Cls.type == BeatCubeClass.Type.Dir || Cls.type == BeatCubeClass.Type.Point || Cls.type == BeatCubeClass.Type.Bomb);
             lineSection.SetActive(Cls.type == BeatCubeClass.Type.Line);
 
             speedField.text = Cls.speed.ToString();
@@ -103,6 +103,10 @@ namespace ModernEditor.Instruments
             {
                 Toggle t = dirToggles.Where(c => c.transform.name == "Point").First();
                 t.isOn = true;
+            }
+            else if (Cls.type == BeatCubeClass.Type.Bomb)
+            {
+                dirToggles.FirstOrDefault(c => c.transform.name == Cls.type.ToString()).isOn = true;
             }
             else
             {
@@ -154,8 +158,12 @@ namespace ModernEditor.Instruments
             if (mode == ToolMode.Spawner)
             {
                 Toggle typeT = GetActiveToggle(typeGroup);
-                BeatCubeClass.Type.TryParse(typeT.transform.name, true, out BeatCubeClass.Type type);
-                Cls.type = type;
+                
+                if(typeT != null)
+                {
+                    BeatCubeClass.Type.TryParse(typeT.transform.name, true, out BeatCubeClass.Type type);
+                    Cls.type = type;
+                }
             }
             
             // Speed
@@ -180,6 +188,7 @@ namespace ModernEditor.Instruments
                 // Dir
                 Toggle dirT = GetActiveToggle(dirGroup);
                 if (dirT.transform.name == "Point") Cls.type = BeatCubeClass.Type.Point;
+                else if (dirT.transform.name == "Bomb") Cls.type = BeatCubeClass.Type.Bomb;
                 else
                 {
                     Cls.type = BeatCubeClass.Type.Dir;
@@ -257,6 +266,8 @@ namespace ModernEditor.Instruments
         public void SpawnBeat()
         {
             Cls.time = bm.asource.time;
+            //Cls.time = GetBPMAlignedTime(bm.asource.time, bm.BPM);
+
             BeatCubeClass clonedCls = Cls.Clone();
             if (clonedCls.type == BeatCubeClass.Type.Line)
             {
@@ -266,6 +277,20 @@ namespace ModernEditor.Instruments
             bm.SpawnBeatCube(clonedCls);
             bm.beatLs.Add(clonedCls);
         }
+
+
+        private float GetBPMAlignedTime(float time, float bpm)
+        {
+            // Time in seconds which one beat take
+            float beatRangeTime = 1f / (bpm / 60f);
+
+            float alignedTime = Mathf.RoundToInt(time / beatRangeTime * 2f) * beatRangeTime / 2f;
+
+
+            return alignedTime;
+        }
+
+
 
         private Toggle GetActiveToggle(ToggleGroup group)
         {

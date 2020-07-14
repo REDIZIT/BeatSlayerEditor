@@ -16,6 +16,7 @@ public class BeatCube : MonoBehaviour, IEditorBeat
     public MeshFilter filter;
 
     public Mesh pointMesh, arrowMesh;
+    public GameObject cubeModel, bombModel;
 
     // Editor stuff
     EditorBeatManager bm;
@@ -37,9 +38,16 @@ public class BeatCube : MonoBehaviour, IEditorBeat
 
     public void Refresh()
     {
+
+        cubeModel.SetActive(cls.type != BeatCubeClass.Type.Bomb);
+        bombModel.SetActive(cls.type == BeatCubeClass.Type.Bomb);
+
         if (cls.type == BeatCubeClass.Type.Point)
         {
             filter.mesh = pointMesh;
+        }
+        else if (cls.type == BeatCubeClass.Type.Bomb)
+        {
         }
         else
         {

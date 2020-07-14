@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InEditor.BPM;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace InGame.Game.Spawn
     public class EditorBeatManager : MonoBehaviour
     {
         public ModernEditorManager manager;
-        
+        public Timescaler timescaler;
+
         public GameObject cubePrefab, linePrefab;
         public Camera cam;
         public AudioSource asource;
@@ -19,7 +21,16 @@ namespace InGame.Game.Spawn
         [Space(25)]
         [Header("BPM")]
         public MeshRenderer beatIndicator;
-        public float bpm;
+        private float bpm;
+        public float BPM 
+        {
+            get { return bpm; }
+            set
+            {
+                bpm = value;
+                timescaler.SetBPM(value);
+            }
+        }
         float beatRangeTime;
         int beatsPassedPrev;
 
@@ -60,18 +71,17 @@ namespace InGame.Game.Spawn
             fieldTransform.position = new Vector3(0, 0, -fieldLength * asource.time);
 
             // Show BPM
-            if(bpm > 0)
+            if(BPM > 0)
             {
                 beatIndicator.material.SetColor("_EmissionColor", ClampColor(beatIndicator.material.GetColor("_EmissionColor") * 0.9f, 0.02f, 1));
 
-                beatRangeTime = 1f / (bpm / 60f);
+                beatRangeTime = 1f / (BPM / 60f);
                 int beatsPassed = Mathf.CeilToInt(asource.time / beatRangeTime);
                 if (beatsPassedPrev != beatsPassed)
                 {
                     if (beatsPassed > beatsPassedPrev)
                     {
                         beatIndicator.material.SetColor("_EmissionColor", new Color(1, 1, 1, 1));
-                        Debug.Log("Beat");
                     }
                     beatsPassedPrev = beatsPassed;
                 }
@@ -88,13 +98,6 @@ namespace InGame.Game.Spawn
 
             fieldLength = distanceSpawnAndPlayArea; // Длина поля в юнитах (где летят кубы)
             fieldCrossTime = 1; // Время за которое куб должен преодолеть поле (в секундах)
-
-            //float mult = replay.cubesSpeed / replay.musicSpeed; 
-            float mult = 1;
-            // scale для поля
-            // Чем больше игрок поставил скорость кубам, тем .... в жопу, потом разберусь с модами
-
-            //cubeSpeed = fieldLength * Time.deltaTime * mult; // Скорость куба (логично)
         }
 
         public void SpawnBeatCube(BeatCubeClass cls)

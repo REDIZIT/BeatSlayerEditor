@@ -90,14 +90,21 @@ public class ModernEditorManager : MonoBehaviour
 
         if (!IsOverlayEnabled())
         {
-            if(Input.GetKeyDown(KeyCode.Space)) timeline.OnPlayPauseBtnClick();
-            
-            if (Input.GetKeyDown(KeyCode.S)) Time.timeScale = 0.2f;
-            else if (Input.GetKeyDown(KeyCode.W)) Time.timeScale = 1f;
-
-            if (Input.GetKeyDown(KeyCode.A)) timeline.Seek(-0.1f, true);
-            if (Input.GetKeyDown(KeyCode.D)) timeline.Seek(0.1f, true);
+            HotKeysHandler();           
         }
+    }
+
+    private void HotKeysHandler()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) timeline.OnPlayPauseBtnClick();
+
+        //if (Input.GetKeyDown(KeyCode.S)) Time.timeScale = 0.2f;
+        //else if (Input.GetKeyDown(KeyCode.W)) Time.timeScale = 1f;
+
+        if (Input.GetKey(KeyCode.A)) timeline.Seek(-0.02f, true);
+        if (Input.GetKey(KeyCode.D)) timeline.Seek(0.02f, true);
+
+        if (Input.GetKeyDown(KeyCode.N)) inspector.SpawnBeat();
     }
 
     void HandleScreenTouches()
