@@ -1,12 +1,10 @@
 ﻿using Assets.AccountManagement;
-using Assets.SimpleLocalization;
+using GameNet;
 using GameNet.Operations;
 using ModernEditor.Popup;
 using Newtonsoft.Json;
 using ProjectManagement;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +31,7 @@ public class PublishUI : MonoBehaviour
     private ProjectListItem selectedItem;
 
 
-    public const string url_getMaps = "http://www.bsserver.tk/Database/GetMap?trackname={0}&nick={1}";
+    public string url_getMaps => NetCore.Url_Server + "/Database/GetMap?trackname={0}&nick={1}";
     
     
     

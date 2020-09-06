@@ -1,28 +1,30 @@
-Key|English|Russian
+п»їKey|English|Russian
 
 
 // Basic
 
-Exit|Exit|Выйти
-Save|Save|Сохранить
-Loading|Loading|Загрузка
-QuitWithoutSaving?|Quit without saving?|Выйти без сохранения?
-Cancel|Cancel|Отмена
+Exit|Exit|Р’С‹Р№С‚Рё
+Save|Save|РЎРѕС…СЂР°РЅРёС‚СЊ
+Loading|Loading|Р—Р°РіСЂСѓР·РєР°
+QuitWithoutSaving?|Quit without saving?|Р’С‹Р№С‚Рё Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ?
+Cancel|Cancel|РћС‚РјРµРЅР°
 
 
 // Instruments
 
-Spawner|Spawner|Спавнер
-Inspector|Inspector|Инспектор
-Bookmarks|Bookmarks|Закладки
-SwipeEditor|Swipe editor|Свайп редактор
-ShowTimeline|Show timeline|Показать таймлайн
-HideTimeline|Hide timeline|Скрыть таймлайн
-ForExitPreesExit|To exit, press back button on phone|Для выхода нажми кнопку назад на телефоне
+Spawner|Spawner|РЎРїР°РІРЅРµСЂ
+Inspector|Inspector|РРЅСЃРїРµРєС‚РѕСЂ
+Bookmarks|Bookmarks|Р—Р°РєР»Р°РґРєРё
+SwipeEditor|Swipe editor|РЎРІР°Р№Рї СЂРµРґР°РєС‚РѕСЂ
+ShowTimeline|Show timeline|РџРѕРєР°Р·Р°С‚СЊ С‚Р°Р№РјР»Р°Р№РЅ
+HideTimeline|Hide timeline|РЎРєСЂС‹С‚СЊ С‚Р°Р№РјР»Р°Р№РЅ
+ForExitPreesExit|To exit, press back button on phone|Р”Р»СЏ РІС‹С…РѕРґР° РЅР°Р¶РјРё РєРЅРѕРїРєСѓ РЅР°Р·Р°Рґ РЅР° С‚РµР»РµС„РѕРЅРµ
+Line duration|Line duration|Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ|DurГ©e
+Line end position|Line end position|РџРѕР·РёС†РёСЏ РєРѕРЅС†Р° Р»РёРЅРёРё|Position de fin de ligne
 
 
 // Timeline
-Speed|Speed|Скорость
-Normal|Normal|Нормальная
-Slowed|Slowed|Замедленная
-RewindSpeed|Rewind speed|Скорость перемотки
+Speed|Speed|РЎРєРѕСЂРѕСЃС‚СЊ
+Normal|Normal|РќРѕСЂРјР°Р»СЊРЅР°СЏ
+Slowed|Slowed|Р—Р°РјРµРґР»РµРЅРЅР°СЏ
+RewindSpeed|Rewind speed|РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРјРѕС‚РєРё

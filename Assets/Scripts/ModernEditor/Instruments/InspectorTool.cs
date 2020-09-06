@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using InEditor.Inspector;
 using InGame.Game.Spawn;
-using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ModernEditor.Instruments
@@ -25,8 +24,23 @@ namespace ModernEditor.Instruments
         
 
         public Animator animator;
-
         private bool isRefreshing;
+
+        [Header("Section")]
+        public GameObject cubeSection;
+        public GameObject lineSection;
+
+        [Header("Universel sections")]
+        public GameObject universelSection;
+        public GameObject universelSpawnerSection;
+
+        [Header("Header texts")]
+        public GameObject inspectorText;
+        public GameObject spawnText;
+
+        [Header("Buttons")]
+        public Button inspectorBtn;
+
         [Header("UI")] 
         public Text label;
         public InputField timeMinField;
@@ -34,29 +48,46 @@ namespace ModernEditor.Instruments
         public ToggleGroup dirGroup, roadGroup, heightGroup;
         public GameObject typeSection, saberSection;
         public ToggleGroup typeGroup, saberGroup;
-        public GameObject timeSection, cubeSection, deleteBtn, spawnBtn;
+        public GameObject timeSection, deleteBtn, spawnBtn;
 
         [Header("Line UI")] 
-        public GameObject lineSection;
         public ToggleGroup lineRoadGroup, lineHeightGroup;
         public ToggleGroup lineEndRoadGroup, lineEndHeightGroup;
         public InputField lineEndMins, lineEndSecs, lineEndMs;
 
+        [Header("Tools")]
+        public List<Transform> iTools;
+        public List<ITool> ITools => iTools.Select(c => c.GetComponent<ITool>()).ToList();
+
+
         private const float MaxCubeSpeed = 8;
 
+
+
+
+
+        private void Update()
+        {
+            inspectorBtn.interactable = selectedCube != null;
+        }
 
         public void OnOpen(bool isSpawner)
         {
             if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Inspector-open")) animator.Play("Inspector-open");
-            
-            if (selectedCube == null)
-            {
-                Refresh(true);
-            }
-            else
-            {
-                Refresh(isSpawner);
-            }
+            mode = isSpawner ? ToolMode.Spawner : ToolMode.Inspector;
+
+            if (isSpawner) selectedCube = null;
+
+            cubeSection.SetActive(Cls.type == BeatCubeClass.Type.Dir || Cls.type == BeatCubeClass.Type.Point || Cls.type == BeatCubeClass.Type.Bomb);
+            lineSection.SetActive(Cls.type == BeatCubeClass.Type.Line);
+
+            universelSection.SetActive(!isSpawner);
+            universelSpawnerSection.SetActive(isSpawner);
+
+            inspectorText.SetActive(!isSpawner);
+            spawnText.SetActive(isSpawner);
+
+            ITools.ForEach((t) => t.Refresh(Cls, this));
         }
 
         public void OnClose()
@@ -67,7 +98,6 @@ namespace ModernEditor.Instruments
         private void Refresh(bool isSpawner)
         {
             isRefreshing = true;
-            mode = isSpawner ? ToolMode.Spawner : ToolMode.Inspector;
 
             label.text = isSpawner ? "Spawner" : "Inspector";
 
@@ -143,6 +173,10 @@ namespace ModernEditor.Instruments
             isRefreshing = false;
         }
 
+        public void OnToolChanged()
+        {
+            selectedCube?.Refresh();
+        }
         public void OnValueChanged()
         {
             if (isRefreshing) return;
@@ -215,8 +249,8 @@ namespace ModernEditor.Instruments
                 }
 
                 // Level
-                Toggle heightT = GetActiveToggle(heightGroup);
-                Cls.level = int.Parse(heightT.transform.name);
+                //Toggle heightT = GetActiveToggle(heightGroup);
+                //Cls.level = int.Parse(heightT.transform.name);
             }
             
             // === Line stuff ===

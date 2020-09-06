@@ -1,4 +1,5 @@
 ﻿using Assets.SimpleLocalization;
+using GameNet;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
@@ -17,9 +18,9 @@ public class EditorUpdater : MonoBehaviour
     public Slider progressBar;
     public Text stateText, percentsText;
 
-    
-    public const string url_getVersion = "http://www.bsserver.tk/Builds/GetEditorVersion";
-    public const string url_downloadApk = "http://www.bsserver.tk/Builds/DownloadEditorApk";
+    string apibase => NetCore.Url_Server;
+    public string url_getVersion => apibase + "/Builds/GetEditorVersion";
+    public string url_downloadApk => apibase + "/Builds/DownloadEditorApk";
 
 
     public void Check()

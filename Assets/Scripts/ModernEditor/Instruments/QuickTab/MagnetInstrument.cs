@@ -37,6 +37,7 @@ public class MagnetInstrument : MonoBehaviour
         for (int i = 1; i < selectedCubes.Count; i++)
         {
             selectedCubes[i].GetClass().time = selectedCubes[0].GetClass().time;
+            selectedCubes[i].OnDeselect();
             selectedCubes[i].Refresh();
         }
         selectedCubes.Clear();
@@ -47,6 +48,10 @@ public class MagnetInstrument : MonoBehaviour
 
     public void CancelBtnClicked()
     {
+        for (int i = 1; i < selectedCubes.Count; i++)
+        {
+            selectedCubes[i].OnDeselect();
+        }
         selectedCubes.Clear();
         isSelecting = false;
         

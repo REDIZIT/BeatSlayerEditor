@@ -149,8 +149,6 @@ namespace InEditor.Analyze
         {
             float modsMultiplier = (cubesSpeed * 1 + musicSpeed * 1) / 2f;
 
-            Debug.Log(accuracy + " " + difficulty + " " + cubesCount + " " + missed + " " + cubesSpeed + " " + musicSpeed);
-
             missed += 1;
             return (accuracy * difficulty * cubesCount * modsMultiplier) / missed;
         }

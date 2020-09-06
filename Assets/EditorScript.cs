@@ -1,4 +1,5 @@
 ﻿using Assets.SimpleLocalization;
+using InEditor.Legacy;
 using ProjectManagement;
 using System;
 using System.Collections;

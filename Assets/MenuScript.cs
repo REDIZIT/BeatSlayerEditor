@@ -21,6 +21,9 @@ public class MenuScript : MonoBehaviour
     public PublishedProjectUI publishedProjectUI { get { return GetComponent<PublishedProjectUI>(); } }
     public ProjectUI projectUI { get { return GetComponent<ProjectUI>(); } }
 
+    private EditorUpdater updater;
+
+
     [Header("UI")]
     public Transform tabPan;
     public Text versionText;
@@ -41,8 +44,6 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
-        CheckServerUrls();
-        
         settingsUI.Init();
 
         accountUI.Init();
@@ -54,7 +55,8 @@ public class MenuScript : MonoBehaviour
 
         versionText.text = Application.version;
 
-        GetComponent<EditorUpdater>().Check();
+        updater = GetComponent<EditorUpdater>();
+        updater.Check();
 
         CoversManager.DefaultTexture = defaultIcon;
     }
@@ -105,15 +107,6 @@ public class MenuScript : MonoBehaviour
         Application.OpenURL(url);
     }
 
-
-    /// <summary>
-    /// Check url. If one of them is for localhost then throw error msg
-    /// </summary>
-    public void CheckServerUrls()
-    {
-        CheckUrl(EditorUpdater.url_downloadApk);
-        CheckUrl(EditorUpdater.url_getVersion);
-    }
 
     void CheckUrl(string url)
     {

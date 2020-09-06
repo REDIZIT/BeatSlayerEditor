@@ -69,7 +69,10 @@ namespace CoversManagement
 
             requests = requests.OrderByDescending(c => c.priority).ToList();
 
-            string url = string.Format(url_cover, requests[0].trackname, requests[0].nick);
+            string trackname = WebUtility.UrlEncode(requests[0].trackname);
+            string nick = WebUtility.UrlEncode(requests[0].nick);
+
+            string url = string.Format(url_cover, trackname, nick);
 
             // file path for downloaded map cover
             Uri uri = new Uri(url);

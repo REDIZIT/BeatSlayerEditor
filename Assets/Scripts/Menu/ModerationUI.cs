@@ -87,6 +87,8 @@ public class ModerationUI : MonoBehaviour
 
         string trackname = selectedItem.mapInfo.group.author + "-" + selectedItem.mapInfo.group.name;
         string nick = selectedItem.mapInfo.nick;
+        trackname = WebUtility.UrlEncode(trackname);
+        nick = WebUtility.UrlEncode(nick);
 
         WebClient c = new WebClient();
         string url = string.Format(url_moderRequest, trackname, nick);
@@ -239,12 +241,16 @@ public class ModerationUI : MonoBehaviour
     void SendResponse()
     {
         WebClient c = new WebClient();
-        string url = string.Format(url_sendResponse, JsonConvert.SerializeObject(selectedResponseItem.operation));
+
+        string json = WebUtility.UrlEncode(JsonConvert.SerializeObject(selectedResponseItem.operation));
+        string url = string.Format(url_sendResponse, json);
         string response = c.DownloadString(url);
 
         if(selectedResponseItem.operation.nick == selectedResponseItem.operation.moderatorNick)
         {
-            c.DownloadString(string.Format(url_cheat, selectedResponseItem.operation.moderatorNick, selectedResponseItem.operation.trackname));
+            string trackname = WebUtility.UrlEncode(selectedResponseItem.operation.trackname);
+            string nick = WebUtility.UrlEncode(selectedResponseItem.operation.moderatorNick);
+            c.DownloadString(string.Format(url_cheat, nick, trackname));
         }
 
         ShowModerationRequests();
@@ -279,7 +285,10 @@ public class ModerationUI : MonoBehaviour
         c.DownloadFileCompleted += OnModerationMapDownloaded;
         c.DownloadProgressChanged += OnModeraionMapProgress;
 
-        string url = string.Format(url_downloadMap, op.trackname, op.nick);
+        string trackname = WebUtility.UrlEncode(op.trackname);
+        string nick = WebUtility.UrlEncode(op.nick);
+
+        string url = string.Format(url_downloadMap, trackname, nick);
 
         // Path where bs will search maps
         string perstPath = Application.persistentDataPath.Replace("com.REDIZIT.BeatSlayerEditor", "com.REDIZIT.BeatSlayer");

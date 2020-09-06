@@ -84,6 +84,8 @@ SwipeEditor|Swipe editor|Свайп редактор
 ShowTimeline|Show timeline|Показать таймлайн
 HideTimeline|Hide timeline|Скрыть таймлайн
 PressExitToExit|To exit, press back button on phone|Для выхода нажми кнопку назад на телефоне
+Line duration|Line duration|Длительность|Durée
+Line end position|Line end position|Конец линии|Position de fin de ligne
 
 
 // Timeline
