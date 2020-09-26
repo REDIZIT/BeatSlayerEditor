@@ -299,8 +299,16 @@ namespace ModernEditor.Instruments
 
         public void SpawnBeat()
         {
-            Cls.time = bm.asource.time;
-            //Cls.time = GetBPMAlignedTime(bm.asource.time, bm.BPM);
+            //Cls.time = bm.asource.time;
+            if (bm.BPM != 0)
+            {
+                Debug.Log(bm.BPM);
+                Cls.time = GetBPMAlignedTime(bm.asource.time, bm.BPM);
+            }
+            else
+            {
+                Cls.time = bm.asource.time;
+            }
 
             BeatCubeClass clonedCls = Cls.Clone();
             if (clonedCls.type == BeatCubeClass.Type.Line)
@@ -316,6 +324,7 @@ namespace ModernEditor.Instruments
         private float GetBPMAlignedTime(float time, float bpm)
         {
             // Time in seconds which one beat take
+            bpm *= 4;
             float beatRangeTime = 1f / (bpm / 60f);
 
             float alignedTime = Mathf.RoundToInt(time / beatRangeTime * 2f) * beatRangeTime / 2f;
