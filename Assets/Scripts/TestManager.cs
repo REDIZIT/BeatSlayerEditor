@@ -38,11 +38,6 @@ namespace Testing
 
         public static void SaveRequest(TestRequest request)
         {
-            /*if (!Application.isEditor)
-            {
-                if (!Directory.Exists(GameFolderPath + "/data/moderation")) Directory.CreateDirectory(GameFolderPath + "/data/moderation");
-            }
-            */
             if (!Directory.Exists(GameFolderPath + "/data/moderation")) Directory.CreateDirectory(GameFolderPath + "/data/moderation");
 
             string filepath = GameFolderPath + "/data/moderation/request.json";
@@ -101,6 +96,7 @@ namespace Testing
         {
             this.type = type;
             this.trackname = trackname;
+            Debug.Log("Create test request " + trackname);
             this.difficultyId = difficultyId;
         }
 
