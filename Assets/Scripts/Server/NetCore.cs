@@ -97,10 +97,10 @@ namespace GameNet
 
             OnSceneLoad();
 
-            Debug.Log(" > Configure()");
+            //Debug.Log(" > Configure()");
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
-                Debug.Log(" > Configure() in unity thread");
+                //Debug.Log(" > Configure() in unity thread");
                 Configurators.Invoke();
 
                 OnFullReady?.Invoke();
@@ -116,7 +116,7 @@ namespace GameNet
 
             OnSceneLoad();
 
-            Debug.Log(" > Configure()");
+            //Debug.Log(" > Configure()");
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
                 config();
@@ -140,12 +140,11 @@ namespace GameNet
             {
                 if (conn == null)
                 {
-                    Debug.Log("CreateConnection for IL2CPP");
                     CreateConnection();
                 }
                 else
                 {
-                    Debug.Log("Dont create connection via Dispatcher (" + conn.State + ")");
+                    //Debug.Log("Dont create connection via Dispatcher (" + conn.State + ")");
                 }
             });
         }
@@ -172,7 +171,7 @@ namespace GameNet
         // (Internal usage)
         static async void Connect()
         {
-            Debug.Log("> Connect");
+            //Debug.Log("> Connect");
             try
             {
                 await conn.StartAsync();
@@ -263,8 +262,7 @@ namespace GameNet
         // (Internal usage)
         static void SubcribeOnServerCalls()
         {
-            //return;
-            Debug.Log("> Sub on server calls");
+            //Debug.Log("> Sub on server calls");
             Subs = new Subscriptions();
 
 

@@ -50,13 +50,21 @@ public class EditorScript : MonoBehaviour
     public Transform spectrum;
     public UnityEngine.Gradient spectrumGradient;
 
+
     // Hidden
     [HideInInspector] public List<EditorBookmark> bookmarks = new List<EditorBookmark>();
+
+
+    /// <summary>Min time difference between cubes in seconds</summary>
+    public const float MIN_CUBE_DELAY = 0.1f;
+
+
 
     // Приватные переменные
     float musicMoveSpeed = 0.5f;
     TimeSpan lastSaveTime;
     List<BeatCubeGO> history = new List<BeatCubeGO>();
+
 
     private void Awake()
     {
@@ -338,10 +346,11 @@ public class EditorScript : MonoBehaviour
         BeatCubeGO script = cube.GetComponent<BeatCubeGO>();
         history.Add(script);
         script.beatCubeClass = cls;
+
         project.beatCubeList.Add(cls);
 
-        float roadPos = cls.road * 2.5f - 1.25f;
-        float heightPos = cls.level * 2.5f + 1.5f;
+        //float roadPos = cls.road * 2.5f - 1.25f;
+        //float heightPos = cls.level * 2.5f + 1.5f;
         cube.transform.localScale = new Vector3(2f, 2f, 2f);
 
         script.Render();

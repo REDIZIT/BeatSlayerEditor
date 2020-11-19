@@ -60,6 +60,7 @@ namespace ModernEditor.Instruments
         public List<ITool> ITools => iTools.Select(c => c.GetComponent<ITool>()).ToList();
 
 
+        public const float MIN_SPAWN_DISTANCE = 0.005f;
         private const float MaxCubeSpeed = 8;
 
 
@@ -299,16 +300,23 @@ namespace ModernEditor.Instruments
 
         public void SpawnBeat()
         {
-            //Cls.time = bm.asource.time;
             if (bm.BPM != 0)
             {
-                Debug.Log(bm.BPM);
                 Cls.time = GetBPMAlignedTime(bm.asource.time, bm.BPM);
             }
             else
             {
                 Cls.time = bm.asource.time;
             }
+
+
+
+
+            if (bm.beatLs.Exists(c => Mathf.Abs(Cls.time - c.time) < MIN_SPAWN_DISTANCE))
+            {
+                return;
+            }
+            
 
             BeatCubeClass clonedCls = Cls.Clone();
             if (clonedCls.type == BeatCubeClass.Type.Line)
